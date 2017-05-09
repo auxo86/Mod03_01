@@ -1,4 +1,5 @@
 ﻿
+@model IEnumerable<Mod02_01.Models.Opera>
 @{
     Layout = null;
 }
@@ -12,7 +13,31 @@
 </head>
 <body>
     <div>
-        <h1>OKyrtitu</h1> 
+        <h1>OK</h1> 
+        @*<ul>
+            @* Model是潛規則 
+            @foreach (var item in Model)
+            {
+                <li>@item.OperaID -- @item.Title -- @item.Year -- @item.Composer </li>
+            }
+        </ul>*@
+
+        <table border=1>
+            <tr>
+                <th>@Html.DisplayNameFor(m=>m.OperaID)</th>
+                <th>@Html.DisplayNameFor(m=>m.Title)</th>
+                <th>@Html.DisplayNameFor(m=>m.Year)</th>
+                <th>@Html.DisplayNameFor(m=>m.Composer)</th>
+            </tr>
+            @foreach (var item in Model)
+            {   <tr>
+                <td>@Html.DisplayFor(mi => item.OperaID)</td>
+                <td>@Html.DisplayFor(mi => item.Title)</td>
+                <td>@Html.DisplayFor(mi => item.Year)</td>
+                <td>@Html.DisplayFor(mi => item.Composer)</td>
+            </tr>
+            }
+        </table>
     </div>
 </body>
 </html>

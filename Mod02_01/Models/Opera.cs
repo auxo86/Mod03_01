@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mod02_01.Models
 {
-   public class Opera
+    public class Opera
     {
         //[DisplayName("編號")]
         [Display(Name = "編號")]
