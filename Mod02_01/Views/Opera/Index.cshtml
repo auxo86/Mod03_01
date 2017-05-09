@@ -30,7 +30,8 @@
                 <th>@Html.DisplayNameFor(m=>m.Composer)</th>
             </tr>
             @foreach (var item in Model)
-            {   <tr>
+            {
+            <tr>
                 <td>@Html.DisplayFor(mi => item.OperaID)</td>
                 <td>@Html.DisplayFor(mi => item.Title)</td>
                 <td>@Html.DisplayFor(mi => item.Year)</td>
