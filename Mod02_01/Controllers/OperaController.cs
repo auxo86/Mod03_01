@@ -43,5 +43,24 @@ namespace Mod02_01.Controllers
                 return HttpNotFound();
             return View(o);
         }
+        //Get:Opera/Create
+        //預設是Http get，這裡是get表單
+        public ActionResult Create() {
+            return View();
+        }
+        //post送出form的資料
+        [HttpPost]
+        public ActionResult Create(Opera opera)
+        {
+            if (ModelState.IsValid)
+            {
+                OperaContext context = new OperaContext();
+                context.Operas.Add(opera);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(opera);
+        }
+
     }
 }
