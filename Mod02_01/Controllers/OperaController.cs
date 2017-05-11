@@ -86,7 +86,12 @@ namespace Mod02_01.Controllers
             if (ModelState.IsValid)
             {
                 OperaContext context = new OperaContext();
-                context.Entry(opera).State = EntityState.Modified;
+                //context.Entry(opera).State = EntityState.Modified;
+                //上面這一行等於下面這一串，但是欄位太多不好用
+                Opera o = context.Operas.Find(opera.OperaID);
+                o.Title = opera.Title;
+                o.Year = opera.Year;
+                o.Composer = opera.Composer;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
