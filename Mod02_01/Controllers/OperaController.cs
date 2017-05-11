@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Net;
+using System.Data.Entity;
 
 namespace Mod02_01.Controllers
 {
@@ -59,6 +60,33 @@ namespace Mod02_01.Controllers
             {
                 OperaContext context = new OperaContext();
                 context.Operas.Add(opera);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(opera);
+        }
+        //LAB 3-6 修改時先顯示要修改那一筆
+        //GET: Opera/Edit/1
+        //GET: Opera/Edit?id=1
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            OperaContext context = new OperaContext();
+            Opera o = context.Operas.Find(id);
+            if (o == null)
+                return HttpNotFound();
+            return View(o);
+        }
+        [HttpPost]
+        public ActionResult Edit(Opera opera)
+        {
+            if (ModelState.IsValid)
+            {
+                OperaContext context = new OperaContext();
+                context.Entry(opera).State = EntityState.Modified;
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }

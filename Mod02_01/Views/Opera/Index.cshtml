@@ -29,6 +29,7 @@
                 <th>@Html.DisplayNameFor(m=>m.Year)</th>
                 <th>@Html.DisplayNameFor(m=>m.Composer)</th>
                 <th>詳細</th>
+                <th>修改</th>
             </tr>
             @foreach (var item in Model)
             {
@@ -39,6 +40,8 @@
                 <td>@Html.DisplayFor(mi => item.Composer)</td>
                 @*指向action Details，後面new一個匿名函式，把ID傳給Atcion Details*@
                 <td>@Html.ActionLink("詳細","Details", new { id = item.OperaID})</td>
+                @*多一欄傳歌劇ID進行修改的Action*@
+                <td>@Html.ActionLink("修改", "Edit", new { id = item.OperaID })</td>
             </tr>
             }
         </table>
