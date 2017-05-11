@@ -45,10 +45,13 @@ namespace Mod02_01.Controllers
         }
         //Get:Opera/Create
         //預設是Http get，這裡是get表單
+        //這裡的做法是get取下面這個Create
+        //post取[HttpPost]後面的Create
         public ActionResult Create() {
             return View();
         }
         //post送出form的資料
+        //opera是Data自動bind
         [HttpPost]
         public ActionResult Create(Opera opera)
         {

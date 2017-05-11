@@ -9,7 +9,7 @@ using System.Data.Entity;
 namespace Mod02_01.DAL
 {
     //public class OperaInitializer:DropCreateDatabaseAlways<OperaContext>
-    public class OperaInitializer: DropCreateDatabaseAlways<OperaContext>
+    public class OperaInitializer: DropCreateDatabaseIfModelChanges<OperaContext>
     {  
         protected override void Seed(OperaContext context)
         {

@@ -13,7 +13,7 @@
 </head>
 <body>
     <div>
-        <h1>OK</h1> 
+        <h1>歌劇點播機</h1> 
         @*<ul>
             @* Model是潛規則 
             @foreach (var item in Model)
@@ -42,6 +42,9 @@
             </tr>
             }
         </table>
+        <p>
+            @Html.ActionLink("新增歌劇", "Create")
+        </p>
     </div>
 </body>
 </html>
