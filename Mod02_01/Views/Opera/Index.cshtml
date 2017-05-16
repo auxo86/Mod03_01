@@ -51,6 +51,13 @@
         <p>
             @Html.ActionLink("新增歌劇", "Create")
         </p>
+        <p>
+            @using (Html.BeginForm("FilterData", "Opera", FormMethod.Get))
+            {
+                <input type="text" name="number"/>
+                <input type="submit" />
+            }
+        </p>
     </div>
 </body>
 </html>
