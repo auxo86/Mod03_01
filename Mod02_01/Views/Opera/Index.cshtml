@@ -54,7 +54,8 @@
         <p>
             @using (Html.BeginForm("FilterData", "Opera", FormMethod.Get))
             {
-                <input type="text" name="number"/>
+                @*<input type="text" name="number"/>*@
+                @Html.TextBox("number", 2, new { maxLength = 20} )
                 <input type="submit" />
             }
         </p>
