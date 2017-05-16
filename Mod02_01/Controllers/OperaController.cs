@@ -98,5 +98,50 @@ namespace Mod02_01.Controllers
             return View(opera);
         }
 
+        //LAB3_8
+        //GET: Opera/Delete/1
+        //GET: Opera/Delete?id=1
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    OperaContext context = new OperaContext();
+        //    Opera o = context.Operas.Find(id);
+        //    if (o == null)
+        //        return HttpNotFound();
+        //    return View(o);
+        //}
+
+        //POST: Opera/Delete/1
+        //POST: Opera/Delete?id=1
+        //[HttpPost, ActionName("Delete")] //POST時的Delete函式，可用以替代DeleteConfirmed
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    OperaContext context = new OperaContext();
+        //    Opera o = context.Operas.Find(id);
+        //    context.Operas.Remove(o);
+        //    context.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
+
+        //GET: Opera/Delete/1
+        //GET: Opera/Delete?id=1
+        //如果不要做確認直接刪除的話
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            OperaContext context = new OperaContext();
+            Opera o = context.Operas.Find(id);
+            if (o == null)
+                return HttpNotFound();
+            context.Operas.Remove(o);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

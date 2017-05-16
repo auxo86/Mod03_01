@@ -30,6 +30,7 @@
                 <th>@Html.DisplayNameFor(m=>m.Composer)</th>
                 <th>詳細</th>
                 <th>修改</th>
+                <th>刪除</th>
             </tr>
             @foreach (var item in Model)
             {
@@ -42,6 +43,8 @@
                 <td>@Html.ActionLink("詳細","Details", new { id = item.OperaID})</td>
                 @*多一欄傳歌劇ID進行修改的Action*@
                 <td>@Html.ActionLink("修改", "Edit", new { id = item.OperaID })</td>
+                @*產生刪除欄，onclick = "return confirm('確定要刪除這筆資料？');"是一個屬性，多屬性用,隔開。new {}是匿名型別*@
+                <td>@Html.ActionLink("刪除", "Delete", new { id = item.OperaID }, new { onclick = "return confirm('確定要刪除這筆資料？');" })</td>
             </tr>
             }
         </table>
