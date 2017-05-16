@@ -117,6 +117,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogActionFilter.cs" />
     <Compile Include="Models\CheckValidYear.cs" />
     <Compile Include="Models\Opera.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
