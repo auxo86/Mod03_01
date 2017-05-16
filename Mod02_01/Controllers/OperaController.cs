@@ -7,9 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.Data.Entity;
+using System.Diagnostics;
 
 namespace Mod02_01.Controllers
 {
+    //[LogActionFilter]
     public class OperaController : Controller
     {
         // GET: Opera
@@ -27,8 +29,14 @@ namespace Mod02_01.Controllers
         //    return View(opera);
         //} Lab2_4
         // GET:Opera/Index
+        //Lab3_9 增加LogActionFilter。在實作的LogActionFilter class中寫好override，然後在這裡用attribute套用
+        
         public ActionResult Index()
         {
+            //輸出在output window
+            //'iisexpress.exe' (CLR v4.0.30319: /LM/W3SVC/2/ROOT-1-131394069974227962): Loaded 'Anonymously Hosted DynamicMethods Assembly'. 
+            //Opera.Index
+            Debug.WriteLine("Opera.Index");
             OperaContext context = new OperaContext();
             return View(context.Operas.ToList());
         }
