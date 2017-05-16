@@ -37,7 +37,7 @@ namespace Mod02_01
             Log("OnResultExecuted", filterContext.RouteData);
         }
         
-        //製作Log函式，並且限定只能在這個namespace用
+        //製作Log函式，並且限定只能在這個class用
         private void Log(string methodName, RouteData routeData)
         {
             var controllerName = routeData.Values["controller"];
