@@ -143,5 +143,16 @@ namespace Mod02_01.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        //Lab4_6
+        //GET: Opera/FilterData?number=2
+        //同樣的回傳結構可以return 到同一個view，也就是共用view
+        public ActionResult FilterData(int number)
+        {
+            OperaContext context = new OperaContext();
+            var query = (from o in context.Operas
+                         orderby o.Year descending
+                         select o).Take(number).ToList();
+            return View("Index", query);
+        }
     }
 }
